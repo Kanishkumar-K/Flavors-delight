@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Flavor's Delight : Burgers, Fries and more </title>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Flavors Delight</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#menu">Menu</a>
+            <a class="nav-item nav-link" href="#order">Order</a>
+            <a class="nav-item nav-link" href="#about-us">About Us</a>
+        </div>
+    <!-- Inside the <div class="ml-auto">...</div> tag -->
+    <div class="ml-auto">
+        <div class="dropdown" onmouseover="showDropdown()" onmouseleave="hideDropdown()">
+            <h6 style="color:rgb(255, 255, 255);" id="welcomeMessage"> </h6>
+            <div class="dropdown-content" id="dropdownContent">
+                <div class="dropdown-item">
+                    <a href="#" onclick="logout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+</nav>
+
+<section id="home">
+<img src="images/bgn.png" width="100%" height="730px">
+<div class="centered">Flavors Delight</div><Br />
+
+
+
+<div class="centered-2">Since 2007</div>
+<H2 class="centered-1">"Experience the perfect blend of flavors at our restaurant, where every bite is a journey into culinary bliss. Come join us and elevate your dining adventures!"</H2>
+</section>
+
+<section id="order" style="background:url('images/nm.png'); padding: 50px 0; position: relative;">
+  <div class="container text-center">
+    <div class="s10" style="font-size: 40px; font-weight: bold; color: #202020;">Order Now</div>
+    <p style="margin-top: 20px; font-size: 20px; color: #1b1a1a;"><b>Delicious dishes just a click away!</b></p>
+    <div style="margin-top: 30px;">
+      <form action="order1.html" method="get" style="display: inline-block;">
+        <button type="submit" class="food-button">Order Now</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<section id="menu" style="background-color: #e7d395f0; padding: 50px 0;">
+  <div class="container text-center">
+    <div class="s10" style="font-size: 36px; font-weight: bold;">Menu Items</div><br>
+    <div style="display: flex; justify-content: center; margin-top: 30px;">
+      <div style="flex: 1; padding: 0 10px;">
+        <img src="images/1.png" alt="Image 1" style="max-width: 100%; height: auto;">
+      </div>
+      <div style="flex: 1; padding: 0 10px;">
+        <img src="images/2.png" alt="Image 2" style="max-width: 100%; height: auto;">
+      </div>
+      <div style="flex: 1; padding: 0 10px;">
+        <img src="images/3.png" alt="Image 3" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+    <div style="margin-top: 50px;">
+      <div style="display: flex; justify-content: center;">
+    
+        <div style="width: 33.33%; padding: 0 10px; text-align:center;">
+          <h3 style="color: #333;  text-align:left;">BEVERAGES</h3>
+          <ul style="list-style-type: none; padding: 0; text-align: left;"><BR>
+            <li style="margin-bottom: 10px;">Milk Shake - $3</li>
+            <li style="margin-bottom: 10px;">Iced Tea - $2</li>
+            <li style="margin-bottom: 10px;">Orange Juice - $4</li>
+            <li style="margin-bottom: 10px;">Lemon Tea - $3</li>
+            <li style="margin-bottom: 10px;">Coffee - $5</li>
+          </ul>
+        </div>
+        <div style="width: 33.33%; padding: 0 10px; text-align:center;">
+          <h3 style="color: #333;  text-align:left;">APPETIZERS</h3>
+          <ul style="list-style-type: none; padding: 0; text-align: left;"><BR>
+            <li style="margin-bottom: 10px;">Fruit Salad - $13</li>
+            <li style="margin-bottom: 10px;">Cocktails - $12</li>
+            <li style="margin-bottom: 10px;">Nuggets - $14</li>
+            <li style="margin-bottom: 10px;">Sandwich - $13</li>
+            <li style="margin-bottom: 10px;">French Fries - $15</li>
+          </ul>
+        </div>
+
+        <div style="width: 33.33%; padding: 0 10px;">
+          <h3 style="color: #333; text-align:left;">MAIN COURSE</h3>
+          <ul style="list-style-type: none; padding: 0; text-align: left;"><BR>
+            <li style="margin-bottom: 10px;">Cheeseburger - $34</li>
+            <li style="margin-bottom: 10px;">Cheese sandwich - $22</li>
+            <li style="margin-bottom: 10px;">Chicken burgers - $23</li>
+            <li style="margin-bottom: 10px;">Spicy chicken - $33</li>
+            <li style="margin-bottom: 10px;">Hot dog - $24</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section id="about-us" style="background-color: #a2e47c82; padding: 50px 0;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="images/demo.jpg" class="img-fluid" alt="Sample Image" style="padding-right: 40px; padding-top:20px;">
+          </div>
+          <div class="col-md-6">
+            <div class="about-content">
+              <h2 class="section-title"><center>About Us</center></h2><Br />
+              <div style="text-align:justify">
+              <p>Welcome to Flavors Delight, where culinary excellence meets exceptional service in a cozy, inviting atmosphere. Our restaurant is a culinary oasis where every dish tells a story and every bite is an experience to savor.</p>
+              <p>Indulge your senses with our carefully curated menu, showcasing a fusion of flavors from around the world, crafted with locally sourced, seasonal ingredients. From mouthwatering appetizers to decadent desserts, each dish is a masterpiece created by our talented chefs.</p>
+              <p>Indulge your senses with our carefully curated menu, showcasing a fusion of flavors from around the world, crafted with locally sourced, seasonal ingredients. From mouthwatering appetizers to decadent desserts, each dish is a masterpiece created by our talented chefs.</p>
+              <p>At Flavors Delight, hospitality is our passion. Our friendly and attentive staff are dedicated to ensuring that every guest feels welcomed and pampered from the moment they step through our doors.</p>
+              <p>Relax and unwind in our stylish dining area or enjoy al fresco dining on our charming outdoor patio.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="footer mt-auto py-3 bg-dark" id="contact" style="padding: 50px 0;">
+      <div class="container">
+        <div class="row">
+          <!-- Map -->
+          <div class="col-lg-6 mb-4">
+            <Br /><Br />
+            <h3 class="mb-2" style="color: #f8d866; text-align:center">Our Location</h3><Br />
+            <div class="map-container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15549.974688928106!2d80.2035972!3d13.0004257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f15d05a7f59%3A0x17f94b1346afdd3a!2sVelachery%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sus!4v1644295133822!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="col-lg-6">
+            <Br /><Br />
+            <div class="row">
+              <!-- Address -->
+              <div class="col-lg-4 mb-4">
+                <div class="contact-item text-center" style="color: #ffffff;">
+                  <span class="icon-room d-block h4 text-primary"></span>
+                  <h3 class="mb-2" style="color: #f8d866;">Address</h3><Br />
+                  <p style="color: #ffffff;">2nd Street & Park Avenue,<br>Baby Nagar,<br>Velachery<br>Chennai, India</p>
+                </div>
+              </div>
+              <!-- Phone -->
+              <div class="col-lg-4 mb-4">
+                <div class="contact-item text-center" style="color: #ffffff;">
+                  <span class="icon-phone d-block h4 text-primary"></span>
+                  <h3 class="mb-2" style="color: #f8d866;">Phone</h3><Br />
+                  <p style="color: #ffffff;">96677 22626<br>95777 26252</p>
+                </div>
+              </div>
+              <!-- Email -->
+              <div class="col-lg-4 mb-4">
+                <div class="contact-item text-center" style="color: #ffffff;">
+                  <span class="icon-mail_outline d-block h4 text-primary"></span>
+                  <h3 class="mb-2" style="color: #f8d866;">Email</h3><Br />
+                  <p style="color: #ffffff;">abc@gmail.com<br>efg@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+
+<footer class="footer mt-auto py-3 bg-dark">
+  <div class="container text-center">
+      <span class="text-muted">Follow Us</span>&nbsp;&nbsp;<Br /><Br />
+      <a href="#" class="social-link"><i class="fa fa-facebook-f" style="font-size: 28px; color: #3b5998;"></i></a> &nbsp;&nbsp;
+      <a href="#" class="social-link"><i class="fa fa-twitter" style="font-size: 28px; color: #1DA1F2;"></i></a> &nbsp;&nbsp;
+      <a href="#" class="social-link"><i class="fa fa-instagram" style="font-size: 28px; color: #DD2A7B;"></i></a> &nbsp;&nbsp;
+      <a href="#" class="social-link"><i class="fa fa-youtube" style="font-size: 28px; color: #c4302b;"></i></a>&nbsp;&nbsp;
+      <a href="#" class="social-link"><i class="fa fa-telegram" style="font-size: 28px; color: #0f69c9;"></i></a>
+      <div class="mt-2"><Br />
+          <span class="text-muted">© 2024 Flavors Delight. All rights reserved.</span>
+      </div>
+  </div>
+</footer>
+
+ <script>
+    function showDropdown() {
+      document.getElementById('dropdownContent').style.display = 'inline-flex';
+    }
+
+    // Function to hide dropdown content
+    function hideDropdown() {
+        document.getElementById('dropdownContent').style.display = 'none';
+    }
+
+    function logout() {
+        localStorage.removeItem('usernames');
+        window.location.href = 'index.html';
+    }
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+    if (loggedInUser) {
+        const username = loggedInUser.username;
+
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        welcomeMessage.textContent = `Welcome, ${username}`;
+    } 
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+.centered {
+  color:aliceblue;
+  font-size: 150px;
+  position: absolute;
+  font-weight: bold;
+  top: 30%;
+  left: 12%;
+  text-shadow: 10px 10px #212121;
+}  
+
+
+.centered-1 {
+  font-size: 25px;
+  color:aliceblue;
+  position: absolute;
+  font-weight: bold;
+  text-align: center;
+  top: 74%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  
+}  
+
+/* Add this to your CSS file or inside a <style> tag in the <head> section */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.centered-2 {
+  font-size: 20px;
+  color:rgb(43, 43, 44);
+  position: absolute;
+  font-weight: bold;
+  text-align: right;
+  top: 58%;
+  left: 78%;
+  transform: translate(-50%, -50%);
+  
+}  
+
+.about{
+font-size: 30px;
+text-align: center;
+background-color: "#FFE4C4";
+
+}
+
+.about-1{
+  background-color: "#FFE4C4";
+
+}
+
+.s10{
+  text-align: center;
+  font-size: 40px;
+}
+
+.s9{
+  padding-left: 50px;
+}
+
+  .food-button {
+    padding: 20px 40px;
+    background-color: #FF6F61;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .food-button:hover {
+    background-color: #f85928;
+    transform: scale(1.2);
+  }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Storage Example</title>
+</head>
+<body>
+  <form id="myForm">
+    <label for="textInput">Enter some text:</label>
+    <input type="text" id="textInput" name="textInput">
+    <button type="submit">Submit</button>
+  </form>
+
+<script>
+document.getElementById('myForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the form from submitting
+
+  // Get the value from the input field
+  const inputValue = document.getElementById('textInput').value;
+
+  // Set the value into localStorage
+  localStorage.setItem('userInput', inputValue);
+
+  // Retrieve the value from localStorage
+  const storedValue = localStorage.getItem('userInput');
+
+  // Display the stored value in the console
+  console.log('Value stored in localStorage:', storedValue);
+
+  document.getElementById("textInput").innerHTML = localStorage.getItem("storedValue");
+
+});
+</script>
+</body>
+</html>
+

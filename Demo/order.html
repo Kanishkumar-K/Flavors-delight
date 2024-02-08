@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <title>Restaurant</title>
+    <style>
+        .s78 {
+            border-collapse: collapse;
+        }
+
+        .container {
+            background-color: white;
+            border: 2px solid #0b0b0b;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .image-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .table-container {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .order-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .delete-icon {
+            cursor: pointer;
+        }
+
+        .total-price {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body style="background-color: #f6f39a;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Restaurant </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="index.html">Recipes</a>
+                <a class="nav-item nav-link" href="order.html">Order</a>
+                <a class="nav-item nav-link" href="index.html">About Us</a>
+            </div>
+
+        </div>
+    </nav>
+    <script lang="javascript">
+        function validate() {
+            var item = document.getElementById("item2").value;
+            var quantity = parseInt(document.getElementsByName("num")[0].value);
+
+            if (item === "" || item === null) {
+                alert("Select any item name from the dropdown");
+                return false;
+            }
+
+            if (isNaN(quantity) || quantity <= 0) {
+                alert("Enter a valid quantity");
+                return false;
+            }
+
+            // Creating new order item
+            var orderContainer = document.getElementById("order-container");
+            var orderItem = document.createElement("div");
+            orderItem.classList.add("order-item");
+
+            // Constructing order item
+            var selectedItem = document.getElementById("item2");
+            var selectedOption = selectedItem.options[selectedItem.selectedIndex];
+            var itemName = selectedOption.textContent;
+            var itemNamemod = itemName.split(" - ")[0].trim();
+            var itemPrice = parseFloat(selectedOption.value.split(" - ")[1].replace("$", ""));
+            var totalPrice = itemPrice * quantity;
+
+            orderItem.innerHTML = `
+            <table class="s78" style="width:100%" text-align:left;>
+                <tr>
+                    <td style="width:34%">${itemNamemod}</td>
+                    <td style="width:22%">$${itemPrice.toFixed(2)}</td>
+                    <td style="width:22%">${quantity}</td>
+                    <td style="width:22%">$${totalPrice.toFixed(2)}</td>
+                </tr>
+            </table>
+            `;
+
+            orderContainer.appendChild(orderItem);
+
+            return false; 
+        }
+
+
+        function calculateTotal() {
+            var orderItems = document.getElementsByClassName("order-item");
+            var totalPrice = 0;
+            var totamt = document.getElementById("total");
+
+            for (var i = 0; i < orderItems.length; i++) {
+                var itemText = orderItems[i].querySelector("td:nth-child(4)").textContent;
+                var itemPrice = parseFloat(itemText.replace("$", ""));
+                totalPrice += itemPrice;
+            }
+
+            var alertMessage = "Total price of the order: $" + totalPrice.toFixed(2);
+            alert(alertMessage);
+
+            totamt.innerHTML = `
+                <td colspan="4">Total: $${totalPrice.toFixed(2)}</td>
+            `;
+        }
+    </script>
+    <br /><br /><br />
+    <div class="container d-flex">
+        <div class="image-container">
+            <img src="images/menu.png" height="100%" width="100%">
+        </div>
+        <div class="table-container">
+            <form name="myform" onsubmit="return validate();">
+                <table class="table table-responsive" border="0" cellpadding="12">
+                    <tr>
+                        <h1 align="center"><br>Order Now!</h1><br><br>
+                    </tr>
+                    <tr>
+                        <td><b>Select Item: </b></td>
+                        <td>
+                            <select id="item2" class="food-item">
+                                <option value="">Select an item</option>
+                                <optgroup label="Beverages">
+                                    <option value="Milk Shake - $3">Milk Shake - $3</option>
+                                    <option value="Iced Tea - $2">Iced Tea - $2</option>
+                                    <option value="Orange Juice - $4">Orange Juice - $4</option>
+                                    <option value="Lemon Tea - $3">Lemon Tea - $3</option>
+                                    <option value="Coffee - $5">Coffee - $5</option>
+                                </optgroup>
+                                <optgroup label="Appetizers">
+                                    <option value="Fruit Salad - $13">Fruit Salad - $13</option>
+                                    <option value="Cocktails - $12">Cocktails - $12</option>
+                                    <option value="Nuggets - $14">Nuggets - $14</option>
+                                    <option value="Sandwich - $13">Sandwich - $13</option>
+                                    <option value="French Fries - $15">French Fries - $15</option>
+                                </optgroup>
+                                <optgroup label="Main Course">
+                                    <option value="Cheeseburger - $34">Cheeseburger - $34</option>
+                                    <option value="Cheese sandwich - $22">Cheese sandwich - $22</option>
+                                    <option value="Chicken burgers - $23">Chicken burgers - $23</option>
+                                    <option value="Spicy chicken - $33">Spicy chicken - $33</option>
+                                    <option value="Hot dog - $24">Hot dog - $24</option>
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Quantity: </b></td>
+                        <td><input type="number" name="num"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" class="registerbtn">Add Items</button>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-primary" onclick="calculateTotal()">Calculate Total Price</button>
+                        </td>
+                    </tr>
+
+                    </tr>
+                </table>
+                <div class="order-container" id="order-container">
+                    <h5 style="text-align:center;">Orders Placed</h5>
+                    <table  class="s78" style="width:100%;">
+                        <tr>
+                            <th style="width:34%;">Item Name</th>
+                            <th style="width:22%">Price/item</th>
+                            <th style="width:22%">Quantity</th>
+                            <th style="width:22%">Sub Total</th>
+                        </tr>
+                        <tbody id="order-body"></tbody>
+                    </table>
+                </div><BR />
+                <div>
+                    <p style="text-align:center; font-size:20px;" id="total"></p>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

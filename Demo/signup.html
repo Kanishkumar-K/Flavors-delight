@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+<style>
+    body {
+        background: url('images/pic.jpg') no-repeat;
+        background-size: 100% 135%;
+        font-family: Arial, sans-serif;
+        color: #000;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 3em;
+    }
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: auto;
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    input[type="submit"],
+    input[type="reset"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+    input[type="reset"] {
+        background-color: #f44336;
+        color: #fff;
+    }
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        opacity: 0.8;
+    }
+    a {
+        color: #666;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .links {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .links a {
+        margin: 0 10px;
+    }
+</style>
+
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form name="myForm">
+        <table align="center" border="0" cellpadding="12">
+            <tr>
+                <td><b>User Name</b></td>
+                <td><input type="text" name="id"></td>
+            </tr>
+            <tr>
+                <td><b>Phone Number</b></td>
+                <td><input type="text" name="num"></td>
+            </tr>
+            <tr>
+                <td><b>Email ID</b></td>
+                <td><input type="text" placeholder="abc@gmail.com" name="email"></td>
+            </tr>
+            <tr>
+                <td><b>Password</b></td>
+                <td><input type="password" name="pwd"></td>
+            </tr>
+            <tr>
+                <td><b>Retype Password</b></td>
+                <td><input type="password" name="pwd2"></td>    
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Sign Up">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div class="links">
+        <span>Forgot password?<a href="forgotpass.html"><u>Reset</u></a></span> &nbsp;&nbsp;&nbsp;
+        <span>Already have an account? <a href="login.html"><u>Login</u></a></span>
+    </div>
+    <div class="links">
+        <span>Go back to <a href="index.html"><u>Home Page</u></a></span>
+    </div>
+<script>
+    function Redirect(){
+        window.location="login.html";
+    }
+
+document.forms['myForm'].addEventListener('submit', function(event) {
+  event.preventDefault(); 
+  
+  const username = document.getElementsByName('id')[0].value;
+  const password = document.getElementsByName('pwd')[0].value;
+
+  if (username.trim() === '' || password.trim() === '') {
+    alert('Please enter both username and password');
+    return;
+  } 
+  
+  if (password.length < 8) {
+    alert("Enter password for at least 8 characters");
+    return false;
+  }
+
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+
+  const userExists = users.find(user => user.username === username);
+
+  if (userExists) {
+    alert('Username already exists! Click OK to Login.');
+    window.location.href="login.html";
+    return;
+  }
+ 
+
+  // Add the new user to the array
+  users.push({ username, password });
+
+  localStorage.setItem('users', JSON.stringify(users));
+
+  console.log('Username:', username);
+  console.log('Password:', password);
+  console.log(users);
+
+  document.getElementsByName('id')[0].value = '';
+  document.getElementsByName('num')[0].value = '';
+  document.getElementsByName('email')[0].value = '';
+  document.getElementsByName('pwd')[0].value = '';
+  document.getElementsByName('pwd2')[0].value = '';
+
+  alert('User registered successfully! You can now Login Now :)');
+  Redirect();
+});
+
+</script>
+</body>
+</html>
